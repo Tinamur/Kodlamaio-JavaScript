@@ -55,8 +55,55 @@ function addToCart4(products) {
   console.log(products);
 }
 
-let products = [product1,
-    product2, 
-    product3];
+let products = [product1, product2, product3];
 
 addToCart4(products);
+
+//REST - Her zaman en sonda rest yap
+function add(bisey, ...numbers) {
+  let total = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    total = total + numbers[i];
+  }
+  console.log(total);
+  console.log(bisey); // rest den sonra yaparsan bozulur fonksiyon
+}
+
+add(10, 20, 30, 40);
+
+//SPREAD - dizi içindeki elemanları dağıt gönder
+let numbers = [30, 10, 40, 20, 50];
+console.log(Math.max(...numbers)); //buraya spread ile dizi elemanları gönderilir
+
+//Destruct - arraydaki bir öğeyi doğruca değişkene at ve daha fazlası
+
+let [
+  akdeniz,
+  karadeniz,
+  ege,
+  doguAnadolu,
+  [akdenizSehirleri, karadenizSehirleri],
+] = [
+  { name: "Akdeniz", population: "15M" },
+  { name: "Karadeniz", population: "13M" },
+  { name: "Ege", population: "14M" },
+  { name: "Doğu Anadolu", population: "16M" },
+  [
+    ["Mersin", "Antalya"],
+    ["Trabzon", "Rize"],
+    ["İzmir", "Aydın"],
+    ["Malatya", "Hakkari"],
+  ],
+];
+
+console.log(akdeniz);
+console.log(ege);
+console.log(karadenizSehirleri);
+
+let newProductName, newUnitPrice, newQuantity;
+({
+  productName: newProductName,
+  unitPrice: newUnitPrice,
+  quantity: newQuantity,
+} = product1);
+console.log(newProductName);
